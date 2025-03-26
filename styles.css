@@ -131,7 +131,7 @@ button:active {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 100;
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,7 +147,7 @@ button:active {
 }
 
 .menu--open .menu__backdrop {
-  visibility: visible;
+  visibility: visible !important;
   opacity: 1;
   transform: translate(0);
 }
@@ -183,7 +183,7 @@ LANDING
 */
 
 #landing {
-  background-color: rgba(115, 66, 214, 0.1)
+  background-color: rgba(115, 66, 214, 0.1);
 }
 
 header {
@@ -209,8 +209,7 @@ header {
 .header__img--wrapper {
   padding: 20px;
 
-  /* Added this after the tutorial to 
-  show it over the wave on larger screens */
+  /* Added this after the tutorial to show it over the wave on larger screens */
   z-index: 100;
 }
 
@@ -329,6 +328,9 @@ FEATURES
   max-height: 380px;
   transition: all 300ms ease;
   cursor: not-allowed;
+  /* Added after tutorial to maintain image aspect ratio */
+  object-fit: contain;
+  object-position: left;
 }
 
 .book__img--wrapper {
@@ -405,6 +407,78 @@ footer {
   padding: 0 8px;
 }
 
+/* 
+**
+
+BOOKS PAGE
+
+**
+*/
+
+#books__body {
+  background-color: rgba(115, 66, 214, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#books__main {
+  flex: 1;
+}
+
+.books__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.books__header--title {
+  margin-bottom: 0;
+}
+
+select {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.books__loading .books__loading--spinner {
+  display: block;
+}
+
+.books__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  font-size: 60px;
+  color: #7342d6;
+}
+
+.fa-spinner {
+  animation: rotate 600ms infinite linear;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 @media (max-width: 768px) {
   .header__description {
